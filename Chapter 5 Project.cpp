@@ -13,6 +13,8 @@
 
 
 #include <iostream>
+#include <iomanip>
+#include <string>
 using namespace std;
 
 int DisplayMenu();
@@ -27,26 +29,36 @@ bool PerformArithmetic(int menuItem);
 
 int DisplayMenu()
 {
+
 	int choice;
+	bool repeat = true;
 
-	cout << " Welcome to Logen's (kinda crummy) homemade calculator!" << endl;
-	cout << "Choose an operation, any operation!" << endl;
-	cout << "1. Addition" << endl;
-	cout << "2. Subtraction" << endl;
-	cout << "3. Multiplication" << endl;
-	cout << "4. Division" << endl;
-	cout << "5. Modulo" << endl;
-	cout << "6. Power" << endl;
-	cout << "7. Exit" << endl;
+	double num1;
+	double num2;
+	double result = 1;
+	do {
 
-	cin >> choice;
+
+		cout << " Welcome to Logen's (kinda crummy) homemade calculator!" << endl;
+		cout << "Choose an operation, any operation!" << endl;
+		cout << "1. Addition" << endl;
+		cout << "2. Subtraction" << endl;
+		cout << "3. Multiplication" << endl;
+		cout << "4. Division" << endl;
+		cout << "5. Modulo" << endl;
+		cout << "6. Power" << endl;
+		cout << "7. Exit" << endl;
+
+		cin >> choice;
 	return choice;
 }
 
 void GetNumbers(double& num1, double& num2)
-{
-	cout << "Alright! Lemme have your numbers then!" << endl;
-	cin >> num1 >> num2;
+		{
+		case 1: cout << "Addition" << endl;
+			cout << "Alright! Lemme have your numbers then!" << endl;
+
+			cin >> num1 >> num2;
 }
 
 double Add(double num1, double num2)
@@ -98,13 +110,13 @@ bool PerformArithmetic(int menuItem)
 		cout << "Addition" << endl;
 		GetNumbers(num1, num2);
 		result = Add(num1, num2);
-		break;
+			break;
 
 	case 2:
 		cout << "Subtraction" << endl;
 		GetNumbers(num1, num2);
 		result = Subtract(num1, num2);
-		break;
+			break;
 
 	case 3:
 		cout << "Multiplication" << endl;
@@ -121,7 +133,7 @@ bool PerformArithmetic(int menuItem)
 			return true;
 		}
 		result = Divide(num1, num2);
-		break;
+			break;
 
 	case 5:
 		cout << "Modulo" << endl;
@@ -132,13 +144,13 @@ bool PerformArithmetic(int menuItem)
 			return true;
 		}
 		result = Modulo(static_cast<int>(num1), static_cast<int>(num2));
-		break;
+			break;
 
 	case 6:
 		cout << "Power" << endl;
 		GetNumbers(num1, num2);
 		result = Power(num1, num2);
-		break;
+			break;
 
 	case 7:
 		cout << "Exit" << endl;
@@ -147,7 +159,7 @@ bool PerformArithmetic(int menuItem)
 	default:
 		cout << "Nah, i got nothin. Maybe try one of the provided options?" << endl;
 		return true;
-	}
+		}
 
 	cout << "And the result is..." << result << "!" << endl;
 	return true;
